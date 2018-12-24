@@ -1,0 +1,24 @@
+CREATE TABLE product(
+product_code NUMBER PRIMARY KEY,
+product_name VARCHAR2(20),
+product_category VARCHAR2(20),
+product_description VARCHAR2(30),
+product_price NUMBER
+);
+
+INSERT INTO product VALUES(1001,'iPhone','Electronics','Smart Phone',35000);
+INSERT INTO product VALUES(1002,'LEDTV','Electronics','TV',45000);
+INSERT INTO product VALUES(1003,'Teddy','Toys','Soft Toy',800);
+INSERT INTO product VALUES(1004,'Pencil','Stationary','A pack of 12 pencils',80);
+
+
+CREATE TABLE sales(
+sales_id NUMBER,
+product_code NUMBER REFERENCES product(product_code),
+quantity NUMBER,
+sales_date DATE,
+line_total NUMBER
+);
+
+
+CREATE SEQUENCE SALES_ID_SEQ START WITH 1000;
